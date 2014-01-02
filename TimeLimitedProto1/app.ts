@@ -41,10 +41,15 @@ class TimeActiveViewModel {
         this.ModelChanged();
     }
 
+    DateFormatter(date: number) {
+        // XXX: hack to make pretty display string. Need a nice timespan library (moment.duration didn't work well enough for me)
+        return moment(this._recorder.GetTimeActive(moment())).utc().format("HH:mm:ss");
+    }
+
     // Call after updating the model 
     ModelChanged() {
-        this.ActiveTime(moment(this._recorder.GetTimeActive(moment())).format("mm:ss"));
-        this.CumulativeActiveTime(moment(this._recorder.GetCumulativeTimeActive(moment())).format("mm:ss"));
+        this.ActiveTime(this.DateFormatter(this._recorder.GetTimeActive(moment())));
+        this.CumulativeActiveTime(this.DateFormatter(this._recorder.GetCumulativeTimeActive(moment())));
         this.IsActive(this._recorder.IsActive());
         this.Name(this._recorder.name);
         this.ActiveCategoryCSS(this._recorder.IsActive() ? "btn-danger" : "");
