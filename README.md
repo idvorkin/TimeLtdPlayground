@@ -1,4 +1,4 @@
-TimeLtdPlayground
+Time.Ltd Playground
 =================
 
-A place to experiment with idea's for Time.Ltd
+A place to experiment with ideas for Time.Ltd - this is experiment quality code. 
