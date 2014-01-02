@@ -41,9 +41,9 @@ class TimeActiveViewModel {
         this.ModelChanged();
     }
 
-    DateFormatter(date: number) {
+    DateFormatter(milliseconds: number) {
         // XXX: hack to make pretty display string. Need a nice timespan library (moment.duration didn't work well enough for me)
-        return moment(this._recorder.GetTimeActive(moment())).utc().format("HH:mm:ss");
+        return moment(milliseconds).utc().format("HH:mm:ss");
     }
 
     // Call after updating the model 
@@ -141,6 +141,7 @@ class ViewModel {
     CurrentCategory:TimeActiveViewModel;
     CurrentCategoryName = ko.observable<string>()
     ElapsedTime = ko.observable<string>();
+    Projects = ko.observableArray<string>("Habits;ONOM;AboveONOM;WORK-Tactical;NGE-FE;Tech-RAMP".split(';'));
     koClickedOn;
     clickedOn(category) {
         this.CurrentCategory.OtherRecorderClicked();
