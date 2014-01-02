@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Time Ltd</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="Scripts/underscore.js"></script>
+    <script src="Scripts/moment.js"></script>   <!-- Latest compiled and minified CSS -->
+    <script src="Scripts/knockout-3.0.0.debug.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <style>
+        .buttonwidth {
+            width: 200px !important;
+        }
+
+        ul {
+            padding-left: 0px;
+            list-style: none;
+        }
+
+        li {
+            list-style-type: none;
+            padding-left: 0px;
+            list-style: none;
+        }
+        .green {
+            background: green;
+        }
+
+        .red {
+            background: red;
+        }
+    </style>
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <div class="page-header">
+        <span data-bind="text:CurrentCategoryName">BND-ProjectName</span>
+        <span data-bind="text:ElapsedTime">BIND-ELAPSED</span>
+    </div>
+    <table>
+        <tbody data-bind="foreach: categories">
+            <tr>
+                <td class="btn-lg buttonwidth btn-primary" data-bind="css: {red:IsActive},  text:Name , click:$root.koClickedOn"></td>
+                <td class="btn-lg btn-primary" data-bind="css: {red:IsActive},  text:CumulativeActiveTime , click:$root.koClickedOn"></td>
+                <td class="btn-lg btn-primary" data-bind="css: {red:IsActive},  text:ActiveTime , click:$root.koClickedOn"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+</body>
+</html>
